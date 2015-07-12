@@ -22,12 +22,13 @@ Spree.config do |config|
       bucket:         ENV["S3_BUCKET"],
 
       # path:          ":rails_root/public/:class/:attachment/:id/:style/:basename.:extension",
+      path:           "/:class/:id/:style/:basename.:extension",
       default_url:   "/:class/:attachment/:id/:style/:basename.:extension",
       default_style: "product",
       }
 
       attachment_config.each do |key, value|
-           Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
+        Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
       end
   end
 Spree.user_class = "Spree::User"
