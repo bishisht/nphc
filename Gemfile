@@ -20,3 +20,5 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
+#gem 'unicorn'
+gem 'spree_liqpay', github: 'kukareka/spree_liqpay'
