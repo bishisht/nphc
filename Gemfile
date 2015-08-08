@@ -18,11 +18,11 @@ gem 'spree', '3.0.1'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 gem 'rails_12factor', group: :production
-gem 'pg'
+gem 'pg', group: :production
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 #gem 'unicorn'
 gem 'spree_liqpay', github: 'kukareka/spree_liqpay'
 # gem 'spree_static_content'
 # gem 'spree_editor'
-gem 'puma'
+gem 'puma', group: :production
