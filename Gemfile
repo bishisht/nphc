@@ -27,3 +27,4 @@ gem 'spree_liqpay', github: 'kukareka/spree_liqpay'
 # gem 'spree_editor'
 gem 'puma', group: :production
 gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
+gem 'newrelic_rpm'
