@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711084555) do
+ActiveRecord::Schema.define(version: 20151128173835) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20150711084555) do
     t.string   "sluggable_type", limit: 50
     t.string   "scope",          limit: 255
     t.datetime "created_at"
+    t.datetime "deleted_at"
   end
 
+  add_index "friendly_id_slugs", ["deleted_at"], name: "index_friendly_id_slugs_on_deleted_at", using: :btree
   add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
@@ -60,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150711084555) do
     t.datetime "created_at",                                                           null: false
     t.datetime "updated_at",                                                           null: false
     t.string   "state",           limit: 255
-    t.integer  "order_id",        limit: 4
+    t.integer  "order_id",        limit: 4,                                            null: false
     t.boolean  "included",        limit: 1,                            default: false
   end
 
@@ -96,9 +98,11 @@ ActiveRecord::Schema.define(version: 20150711084555) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.text     "preferences",     limit: 65535
+    t.datetime "deleted_at"
   end
 
   add_index "spree_calculators", ["calculable_id", "calculable_type"], name: "index_spree_calculators_on_calculable_id_and_calculable_type", using: :btree
+  add_index "spree_calculators", ["deleted_at"], name: "index_spree_calculators_on_deleted_at", using: :btree
   add_index "spree_calculators", ["id", "type"], name: "index_spree_calculators_on_id_and_type", using: :btree
 
   create_table "spree_countries", force: :cascade do |t|
@@ -184,7 +188,7 @@ ActiveRecord::Schema.define(version: 20150711084555) do
     t.decimal  "additional_tax_total",             precision: 10, scale: 2, default: 0.0
     t.decimal  "promo_total",                      precision: 10, scale: 2, default: 0.0
     t.decimal  "included_tax_total",               precision: 10, scale: 2, default: 0.0, null: false
-    t.decimal  "pre_tax_amount",                   precision: 8,  scale: 2, default: 0.0
+    t.decimal  "pre_tax_amount",                   precision: 12, scale: 4, default: 0.0, null: false
   end
 
   add_index "spree_line_items", ["order_id"], name: "index_spree_line_items_on_order_id", using: :btree
@@ -636,7 +640,7 @@ ActiveRecord::Schema.define(version: 20150711084555) do
     t.decimal  "additional_tax_total",             precision: 10, scale: 2, default: 0.0
     t.decimal  "promo_total",                      precision: 10, scale: 2, default: 0.0
     t.decimal  "included_tax_total",               precision: 10, scale: 2, default: 0.0, null: false
-    t.decimal  "pre_tax_amount",                   precision: 8,  scale: 2, default: 0.0
+    t.decimal  "pre_tax_amount",                   precision: 12, scale: 4, default: 0.0, null: false
   end
 
   add_index "spree_shipments", ["address_id"], name: "index_spree_shipments_on_address_id", using: :btree

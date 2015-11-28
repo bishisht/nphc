@@ -1,5 +1,5 @@
 development:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   database: nhc_development
   username: root
@@ -8,7 +8,7 @@ development:
   port: 3306
 
 test:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   database: nhc_test
   username: root
