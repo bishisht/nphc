@@ -19,16 +19,16 @@ end
 group :spree do
     # gem 'spree', '3.0.1'
     # gem 'spree_core', '~> 3.0', '>= 3.0.4'
-    gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
     gem 'spree_liqpay', github: 'kukareka/spree_liqpay'
     gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
     # gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: 'master'
-    gem 'spree_static_content', github: 'adavanisanti/spree_static_content', branch: 'master'
     gem 'spree_editor'
 end
+gem 'spree', '3.0.3'
 gem 'spree_core'
-gem 'spree'
+gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
+gem 'spree_static_content', github: 'adavanisanti/spree_static_content', branch: 'master'
 
 
 
